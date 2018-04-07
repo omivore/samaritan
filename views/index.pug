@@ -2,8 +2,11 @@ extends layout
 include mixins
 
 block content
-  h3= search
-  #feed
-    each request in requests
+  #index
+    #feed
+      h3= search
+      each request in requests
         +request(request.title, request. author, request.time, request.distance,
                  request.content, request.current, request.total)
+    div
+      a(href='/request') Make a request

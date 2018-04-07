@@ -1,5 +1,5 @@
 const stitch = require("mongodb-stitch")
-const requests = require("./request")
+const requests = require("../request")
 
 let appId = 'samaritan-vvwrm'
 

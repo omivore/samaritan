@@ -11,7 +11,12 @@ router.get('/', function (req, res, next) {
             max: 10000
         }
     }
-    db.then(() => database.getRequests(location).then(data => res.render('index', data)))
+
+    db.then(() => {
+        database.getRequests(location).then(data => {
+            res.render('index', data)
+        })
+    })
 })
 
 module.exports = router

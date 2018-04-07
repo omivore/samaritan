@@ -35,6 +35,7 @@ module.exports = {
                 search: location,
                 requests: data.map(item => {
                     return {
+                        id: item._id,
                         title: item.title,
                         author: item.author,
                         time: item.time.toString(),

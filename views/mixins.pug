@@ -1,4 +1,4 @@
-mixin request(title, author, time, distance, content, current, total)
+mixin request(id, title, author, time, distance, content, current, total)
   .request
     .title
       div
@@ -10,4 +10,6 @@ mixin request(title, author, time, distance, content, current, total)
     p.content= content
     .response
       p.label= current + '/' + total
-      input(type='button' value='I will help')
+      form(method=post action='/help')
+        input(type='hidden' name='reqId' value=id)
+        input(type='button' value='I will help')

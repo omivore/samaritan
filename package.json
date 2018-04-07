@@ -12,7 +12,9 @@
     "express-session": "^1.15.6",
     "http-errors": "~1.6.2",
     "less-middleware": "~2.2.1",
+    "mongodb-stitch": "^3.0.7",
     "morgan": "~1.9.0",
-    "pug": "2.0.0-beta11"
+    "pug": "2.0.0-beta11",
+    "pug-cli": "^1.0.0-alpha6"
   }
 }

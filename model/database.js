@@ -19,8 +19,10 @@ module.exports = {
             title: title,
             author: author,
             time: time,
-            location: null,
-            lat: place[0], lon: place[1],
+            location: {
+                type: 'Point',
+                coordinates: place
+            },
             content: content,
             needed: needed,
             volunteers: []

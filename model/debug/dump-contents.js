@@ -20,7 +20,7 @@ clientPromise.then(client => {
 
     client.login().then(() =>
         db.collection("requests").find({
-            coordinates: {
+            location: {
                 $near: {
                     $geometry: {
                         type: "Point",

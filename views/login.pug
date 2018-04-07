@@ -1,0 +1,8 @@
+extend layout
+
+block content
+  #login
+    h2 Welcome to Samaritan!
+    form(method='post', action='login')
+      input(type='text', name='username', placeholder='Name')
+      input(type='submit', value='Login')

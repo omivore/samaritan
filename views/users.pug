@@ -1,0 +1,8 @@
+extend layout
+
+block content
+  #users
+    img(src='images/profile.png')
+    h2= username
+    form(method='post', action='/users')
+      input(type='submit', value='Logout')

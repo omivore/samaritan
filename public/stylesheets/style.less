@@ -1,8 +1,163 @@
+@highlight: #658882;
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0;
 }
 
-a {
-  color: #00B7FF;
+#header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50px;
+    background-color: #E6E6E6;
+
+    a {
+        color: @highlight;
+        text-decoration: none;
+    }
+
+    input {
+        width: 50%;
+        font-size: 20px;
+    }
+
+    img {
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+        border: 1px solid #CCC;
+    }
+}
+
+#content {
+    padding: 10px 5px 0 40%;
+}
+
+#index {
+    display: table;
+
+    #feed {
+        display: table-cell;
+        width: 60%;
+    }
+
+    > div:last-child {
+        display: table-cell;
+        text-align: right;
+        padding-right: 20px;
+
+        a {
+            padding: 5px;
+            border: 2px solid darken(@highlight, 20%);
+            border-radius: 2px;
+            text-decoration: none;
+            color: black;
+
+            &:hover {
+                background-color: @highlight;
+            }
+        }
+    }
+}
+
+.request {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 100%;
+    min-height: 100px;
+    width: 500px;
+    margin-top: 10px;
+    padding: 10px;
+    border: 3px solid black;
+    border-radius: 5px;
+
+    h2, p {
+        margin: 0;
+    }
+
+    .title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        div:first-child {
+            * {
+                display: inline;
+            }
+
+            p {
+                margin-left: 5px;
+                font-style: italic;
+            }
+        }
+
+        .rsvp_info {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            font-style: italic;
+        }
+    }
+
+    .content {
+        margin: 10px 0 10px 0;
+        padding-left: 5px;
+    }
+
+    .response {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        .label {
+            margin-right: 10px;
+        }
+
+        input {
+            height: 20px;
+        }
+    }
+}
+
+#login {
+    display: block;
+
+    input {
+        margin-left: 20px;
+    }
+}
+
+#users {
+    img {
+        width: 60px; height: 60px;
+        border-radius: 30px;
+        border: 1px solid #CCC;
+    }
+}
+
+#request form {
+    height: 300px;
+    width: 70%;
+
+    > * {
+        display: block;
+        margin-bottom: 10px;
+        width: 70%;
+    }
+
+    textarea {
+        height: 100px;
+    }
+
+    div:last-child {
+        width: 70%;
+        text-align: center;
+    }
+
+    input[type=submit] {
+        width: 120px;
+        margin: 0 auto;
+    }
 }

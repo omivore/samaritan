@@ -1,0 +1,13 @@
+mixin request(title, author, time, distance, content, current, total)
+  .request
+    .title
+      div
+        h2= title
+        p.author from #{author}
+      .rsvp_info
+        p.time= time
+        p.distance= distance
+    p.content= content
+    .response
+      p.label= current + '/' + total
+      input(type='button', value='I will help')

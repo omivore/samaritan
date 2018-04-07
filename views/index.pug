@@ -1,5 +1,12 @@
 extends layout
+include mixins
 
 block content
-  h1= title
-  p Welcome to #{title}
+  #index
+    #feed
+      h3= search
+      each request in requests
+        +request(request.title, request.author, request.time, request.distance,
+                 request.content, request.current, request.total)
+    div
+      a(href='/request') Make a request

@@ -6,13 +6,13 @@ function restrict(req, res, next) {
     else res.redirect('/login');
 }
 
-/* GET users listing. */
 router.get('/', restrict, function(req, res, next) {
-  res.render('users.pug', { username: req.session.user });
+  res.render('request.pug');
 });
 
 router.post('/', (req, res) => {
-    req.session.destroy(() => res.redirect('/'));
+  res.render('request.pug');
 });
 
 module.exports = router;
+

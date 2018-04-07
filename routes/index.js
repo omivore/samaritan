@@ -6,6 +6,7 @@ let test = {
     requests: [
         {
             title: 'Help',
+            author: 'jason',
             time: '10pm',
             distance: '2mi away',
             content: 'help I got hit by a hurricane come help me wash my car',
@@ -13,6 +14,7 @@ let test = {
         },
         {
             title: 'Dan the Man',
+            author: 'dan',
             time: '1am',
             distance: 'Near you',
             content: 'Need mah insomnia cookies man',
@@ -20,6 +22,7 @@ let test = {
         },
         {
             title: '2',
+            author: 'maxwell',
             time: '12pm',
             distance: '5mi away',
             content: 'oohhhh who lives in a pineapple under the seaaaa',

@@ -5,5 +5,5 @@ block content
   h3= search
   #feed
     each request in requests
-      +request(request.title, request.time, request.distance,
-               request.content, request.current, request.total)
+        +request(request.title, request. author, request.time, request.distance,
+                 request.content, request.current, request.total)

@@ -1,7 +1,9 @@
-mixin request(title, time, distance, content, current, total)
+mixin request(title, author, time, distance, content, current, total)
   .request
     .title
-      h2= title
+      div
+        h2= title
+        p.author from ${author}
       .rsvp_info
         p.time= time
         p.distance= distance

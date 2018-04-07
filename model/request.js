@@ -1,30 +1,29 @@
-class Request {
+const stitch = require("mongodb-stitch")
 
-    constructor(author, title, content, lat, lon, tags) {
-        this.author = author
-        this.title = title
-        this.content = content
-        this.lat = lat
-        this.lon = lon
-        this.tags = tags
+module.exports = {
+
+    Request: class {
+
+        constructor(author, title, content) {
+            this.author = author
+            this.title = title
+            this.content = content
+            this.lat = 0
+            this.lon = 0
+            this.tags = []
+            this.needed = 0
+            this.fulfilled = 0
+            this.ver = 0.2
+        }
+
+        submit(collection) {
+
+            return collection.insertOne(this)
+
+
+
+            // send data to mongo
+        }
+
     }
-
-    submit() {
-        // send data to mongo
-    }
-
-    addTime() {
-        //
-    }
-
-    addLocation() {
-        // GIS
-    }
-
-    addResponse(user) {
-
-    }
-
-
-
 }

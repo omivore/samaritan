@@ -20,7 +20,7 @@ clientPromise.then(client => {
 
     client.login().then(() =>
         db.collection("requests").find({
-            location: {
+            coordinates: {
                 $near: {
                     $geometry: {
                         type: "Point",
@@ -32,7 +32,7 @@ clientPromise.then(client => {
         }).limit(100).execute()
     ).then(data => {
         console.log(data)
-        // console.log(data[0].location)
+        // console.log(data[0].coordinates)
     }).catch(err =>
         console.log(err)
     )

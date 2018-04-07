@@ -6,6 +6,7 @@ let db
 let requestsDb
 
 module.exports = {
+
     loadMongo: () => {
         return clientPromise.then(client => {
             db = client.service('mongodb', 'mongodb-atlas').db('samaritan-db')
@@ -19,7 +20,7 @@ module.exports = {
             title: title,
             author: author,
             time: time,
-            location: {
+            coordinates: {
                 type: 'Point',
                 coordinates: place
             },
@@ -30,7 +31,18 @@ module.exports = {
     },
 
     getRequests: (location) => {
-        return requestsDb.find({}).execute().then(data => {
+        return requestsDb.find({
+            location: {
+                $near: {
+                    $geometry: {
+                        type: 'Point',
+                        coordinates: location.coordinates
+                    },
+                    $maxDistance: location.maxDistance,
+                    $minDistance: location.minDistance
+                }
+            }
+        }).execute().then(data => {
             return {
                 search: location,
                 requests: data.map(item => {

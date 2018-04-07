@@ -4,7 +4,7 @@ include mixins
 block content
   #index
     #feed
-      h3= search
+      h3=search
       each request in requests
         +request(request.title, request.author, request.time, request.distance,
                  request.content, request.current, request.total)

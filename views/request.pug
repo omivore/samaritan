@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  #request
+    h2 Make your own request
+    form(method='post', action='/request')
+      div
+        input(type='text', name='title', placeholder='Title' required)
+        input(type='date', name='date' required)
+      input(type='text', name='location', placeholder='Address' required)
+      textarea(placeholder='What do you need?' required)
+      input(type='submit', value='Create Request')

@@ -9,14 +9,15 @@ module.exports = {
             this.author = author
             this.title = title
             this.content = content
-            this.location = null
+            this.lat = 0
+            this.lon = 0
             this._date = null
             this._time = null
             this._duration = null
             this.tags = []
             this._needed = 0
             this._current = 0
-            this._ver = 0.4
+            this._ver = 0.5
         }
 
         get current() {

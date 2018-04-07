@@ -1,5 +1,4 @@
 const stitch = require("mongodb-stitch")
-const requests = require("../request")
 const coordinates = {
     "xfinity-center": [
         38.995562,

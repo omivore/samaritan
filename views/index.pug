@@ -1,5 +1,9 @@
 extends layout
+include request
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h3= search
+  #feed
+    each request in requests
+      +request(request.title, request.time, request.distance,
+               request.content, request.current, request.total)

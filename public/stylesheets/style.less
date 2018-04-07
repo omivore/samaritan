@@ -1,8 +1,77 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0;
 }
 
-a {
-  color: #00B7FF;
+#header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50px;
+    background-color: #E6E6E6;
+
+    input {
+        width: 50%;
+        font-size: 20px;
+    }
+
+    img {
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+        border: 1px solid #CCC;
+    }
+}
+
+#content {
+    padding: 10px 5px 0 40%;
+}
+
+.request {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 50%;
+    min-height: 100px;
+    width: 500px;
+    margin-top: 10px;
+    padding: 10px;
+    border: 3px solid black;
+    border-radius: 5px;
+
+    h2, p {
+        margin: 0;
+    }
+
+    .title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .rsvp_info {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            font-style: italic;
+        }
+    }
+
+    .content {
+        margin: 10px 0 10px 0;
+        padding-left: 5px;
+    }
+
+    .response {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        .label {
+            margin-right: 10px;
+        }
+
+        input {
+            height: 20px;
+        }
+    }
 }

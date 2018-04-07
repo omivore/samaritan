@@ -10,8 +10,6 @@ var usersRouter = require('./routes/users')
 
 var app = express()
 
-var requests = require('./model/request')
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'pug')
@@ -42,18 +40,5 @@ app.use(function (err, req, res, next) {
     res.render('error')
 })
 
-let appId = 'samaritan-ugbfv'
-
-const stitch = require("mongodb-stitch")
-const clientPromise = stitch.StitchClientFactory.create(appId)
-clientPromise.then(client => {
-    const db = client.service('mongodb', 'mongodb-atlas').db('samaritan-db')
-    let jason = new requests.Request("Jason", "Title", "Content")
-    client.login().then(() =>
-        jason.submit(db.collection("requests"))
-    ).then(result =>
-        console.log(result)
-    ).catch(err => console.log(err))
-})
-
 module.exports = app
+

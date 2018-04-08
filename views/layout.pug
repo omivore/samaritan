@@ -7,7 +7,9 @@ html
     #header
       a(href='/')
         h1 Samaritan
-      input(type='text')
+      form(method='get' action='/')
+        input(type='text' name='location' )
+        input(type='submit' value='Find Requests')
       a(href='users')
         img(src='images/profile.png')
     #content

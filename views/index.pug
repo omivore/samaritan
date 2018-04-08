@@ -6,7 +6,8 @@ block content
     #feed
       h3=search
       each request in requests
-        +request(request.title, request.author, request.time, request.distance,
-                 request.content, request.current, request.total)
+        +request(request.id, request.title, request.author,
+                 request.time, request.distance, request.content,
+                 request.current, request.total)
     div
       a(href='/request') Make a request

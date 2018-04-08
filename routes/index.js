@@ -8,7 +8,7 @@ const router = express.Router();
 router.get('/', function (req, res, next) {
     let coordinates, address;
     if (req.query.address) {
-        coordinates = geocode.geocode(req.query.address, response =>
+        coordinates = geocode.geocode(req.query.address).then(response =>
             [Number(response.body[0].lat), Number(response.body[0].lon)]
         );
         address = req.query.address;

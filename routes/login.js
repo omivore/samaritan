@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 router.post('/', (req, res) => {
     req.session.regenerate(() => {
         req.session.user = req.body.username;
-        res.redirect('back');
+        res.redirect('/');
     });
 });
 

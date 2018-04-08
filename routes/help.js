@@ -1,18 +1,15 @@
 var express = require('express');
 var router = express.Router();
+const database = require('../model/database');
 
-/*router.get('/', function(req, res, next) {
-    res.render('login');
-});*/
+router.get('/', function(req, res, next) {
+    res.redirect('back');
+});
 
 router.post('/', (req, res) => {
-    console.log("Hello World");
-    console.log(req.uuid);
-/*    req.session.regenerate(() => {
-        req.session.user = req.body.username;
-        res.redirect('back');
-    });*/
-    // res.redirect('back');
+    const uuid = req.body.reqId;
+    database.addVolunteer(uuid, req.session.user).then(data => console.log(data));
+    res.redirect('back');
 });
 
 module.exports = router;

@@ -49,7 +49,7 @@ module.exports = {
                         id: item._id,
                         title: item.title,
                         author: item.author,
-                        time: item.time.toString(),
+                        time: new Date(item.time).toDateString(),
                         distance: round(getDistance(location.coordinates, item.location.coordinates), 2).toString() + " miles",
                         content: item.content,
                         current: 0,

@@ -2,20 +2,20 @@ const stitch = require("mongodb-stitch")
 
 const clientPromise = stitch.StitchClientFactory.create('samaritan-vvwrm')
 
-let db
 let requestsDb
 
 module.exports = {
     loadMongo: () => {
         return clientPromise.then(client => {
-            db = client.service('mongodb', 'mongodb-atlas').db('samaritan-db')
-            requestsDb = db.collection('requests')
+            requestsDb = client.service('mongodb', 'mongodb-atlas')
+                               .db('samaritan-db')
+                               .collection('requests')
             return client.login()
         })
     },
 
     createRequest: (title, author, content, needed, time, place) => {
-        return db.collection('requests').insertOne({
+        return requestsDb.insertOne({
             title: title,
             author: author,
             time: time,
@@ -49,5 +49,5 @@ module.exports = {
         }).catch(err => console.log(err))
     },
 
-    db: () => db
+    requestsDb: () => requestsDb
 }

@@ -58,7 +58,7 @@ module.exports = {
                             item.location.coordinates
                         ), 2).toString() + " miles away",
                         content: item.content,
-                        current: 0,
+                        current: item.volunteers.length,
                         total: item.needed
                     };
                 })
@@ -70,8 +70,8 @@ module.exports = {
         return requestsDb.updateOne({uuid: uuid}, {$set: {data}})
     },
 
-    increaseCurrent: (uuid) => {
-        return requestsDb.updateOne({uuid: uuid}, {$inc: {current: 1}})
+    addVolunteer: (uuid, volunteer) => {
+        return requestsDb.updateOne({uuid: uuid}, {$push: {volunteers: volunteer}})
     },
 
     requestsDb: () => requestsDb

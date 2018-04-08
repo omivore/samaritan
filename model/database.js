@@ -1,17 +1,17 @@
-const stitch = require("mongodb-stitch")
+const stitch = require("mongodb-stitch");
 
-const clientPromise = stitch.StitchClientFactory.create('samaritan-vvwrm')
+const clientPromise = stitch.StitchClientFactory.create('samaritan-vvwrm');
 
-let requestsDb
+let requestsDb;
 
 module.exports = {
     loadMongo: () => {
         return clientPromise.then(client => {
             requestsDb = client.service('mongodb', 'mongodb-atlas')
-                               .db('samaritan-db')
-                               .collection('requests')
-            return client.login()
-        })
+                .db('samaritan-db')
+                .collection('requests');
+            return client.login();
+        });
     },
 
     createRequest: (title, author, content, needed, time, place) => {
@@ -60,7 +60,8 @@ module.exports = {
         }).catch(err => console.log(err));
     },
 
-    db: () => db
+    requestsDb: () => requestsDb
+
 };
 
 function getDistance(coord1, coord2) {
@@ -71,7 +72,6 @@ function getDistance(coord1, coord2) {
     let phi1 = lat1.toRadians(), phi2 = lat2.toRadians(), deltaLambda = (lon2 - lon1).toRadians(), R = 6371e3; // gives d in metres
     let meterDistance = Math.acos(Math.sin(phi1) * Math.sin(phi2) + Math.cos(phi1) * Math.cos(phi2) * Math.cos(deltaLambda)) * R;
     return meterDistance * 0.000621371;
-    requestsDb: () => requestsDb
 }
 
 Number.prototype.toRadians = function () {

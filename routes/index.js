@@ -8,15 +8,6 @@ const geocode = require('../model/geocode-g');
 /* GET home page. */
 router.get('/', function (req, res, next) {
 
-    /*unirest.get("https://nominatim.openstreetmap.org/reverse")
-        .query('format=jsonv2')
-        .query({lat: location.coordinates[0]})
-        .query({lon: location.coordinates[1]})
-        .end(function(res) {
-            console.log(res.body)
-        })
-*/
-
     let location = {
         coordinates: [38.992505, -76.947505],
         maxDistance: 10000,

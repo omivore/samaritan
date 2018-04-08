@@ -38,7 +38,7 @@ module.exports = {
                         id: item._id,
                         title: item.title,
                         author: item.author,
-                        time: item.time.toString(),
+                        time: new Date(item.time).toDateString(),
                         distance: 'Not implemented',
                         content: item.content,
                         current: 0,

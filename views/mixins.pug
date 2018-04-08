@@ -12,4 +12,4 @@ mixin request(uuid, title, author, time, distance, content, current, total)
       p.label= current + '/' + total
       form(method='post' action='help')
         input(type='hidden' name='reqId' value=uuid)
-        input(type='button' value='I will help')
+        input(type='submit' value='I will help')

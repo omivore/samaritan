@@ -11,7 +11,7 @@ router.get('/', function (req, res, next) {
         coordinates = geocode.geocode(req.query.address, response =>
             [Number(response.body[0].lat), Number(response.body[0].lon)]
         );
-        address = address;
+        address = req.query.address;
     } else {
         let geo = geoip.lookup(req.ip);
         if (geoip.lookup(req.ip) != null) {

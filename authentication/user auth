@@ -1,0 +1,9 @@
+user auth
+
+yourStitchClient.authenticate("anon")
+  .then( authedUserId => {
+      console.log("logged in anonymously as user", authedUserId);
+  })
+  .catch( err => {
+      console.error("failed to log in anonymously:", err);
+  });

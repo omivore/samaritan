@@ -25,7 +25,8 @@ module.exports = {
             },
             content: content,
             needed: needed,
-            volunteers: []
+            volunteers: [],
+            uuid: uuid()
         });
     },
 
@@ -46,7 +47,7 @@ module.exports = {
                 search: locationString,
                 requests: data.map(item => {
                     return {
-                        id: item._id,
+                        uuid: item.uuid,
                         title: item.title,
                         author: item.author,
                         time: new Date(item.time).toDateString(),
@@ -87,4 +88,13 @@ function round(number, precision) {
         return +(numArray[0] + "e" + (numArray[1] ? (+numArray[1] + precision) : precision));
     };
     return shift(Math.round(shift(number, precision, false)), precision, true);
+}
+
+function uuid() {
+    function s4() {
+        return Math.floor((1 + Math.random()) * 0x10000)
+            .toString(16)
+            .substring(1);
+    }
+    return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
 }

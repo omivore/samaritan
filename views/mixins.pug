@@ -11,5 +11,5 @@ mixin request(id, title, author, time, distance, content, current, total)
     .response
       p.label= current + '/' + total
       form(method=post action='/help')
-        input(type='hidden' name='reqId' value=id)
-        input(type='button' value='I will help')
+        input(type='hidden' name='reqId' value=uuid)
+        input(type='submit' value='I will help')

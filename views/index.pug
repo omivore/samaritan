@@ -6,7 +6,7 @@ block content
     #feed
       h3=search
       each request in requests
-        +request(request.id, request.title, request.author,
+        +request(request.uuid, request.title, request.author,
                  request.time, request.distance, request.content,
                  request.current, request.total)
     div

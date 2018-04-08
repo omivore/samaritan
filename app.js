@@ -24,6 +24,8 @@ app.use(cookieParser())
 app.use(lessMiddleware(path.join(__dirname, 'public')))
 app.use(express.static(path.join(__dirname, 'public')))
 
+app.enable('trust proxy')
+
 db = require('./model/database').loadMongo() // promise
 
 app.use(session({

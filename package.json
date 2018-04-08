@@ -15,6 +15,7 @@
     "mongodb-stitch": "^3.0.7",
     "morgan": "~1.9.0",
     "pug": "2.0.0-beta11",
-    "pug-cli": "^1.0.0-alpha6"
+    "pug-cli": "^1.0.0-alpha6",
+    "unirest": "^0.5.1"
   }
 }

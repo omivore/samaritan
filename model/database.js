@@ -49,7 +49,7 @@ module.exports = {
                 search: locationString,
                 requests: data.map(item => {
                     return {
-                        id: item._id,
+                        uuid: item.uuid,
                         title: item.title,
                         author: item.author,
                         time: new Date(item.time).toDateString(),

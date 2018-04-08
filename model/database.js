@@ -25,7 +25,8 @@ module.exports = {
             },
             content: content,
             needed: needed,
-            volunteers: []
+            volunteers: [],
+            uuid: uuid()
         });
     },
 
@@ -63,6 +64,14 @@ module.exports = {
         }).catch(err => console.log(err));
     },
 
+    updateRequest: (uuid, data) => {
+        return requestsDb.updateOne({uuid: uuid}, {$set: {data}})
+    },
+
+    increaseCurrent: (uuid) => {
+        return requestsDb.updateOne({uuid: uuid}, {$inc: {current: 1}})
+    },
+
     requestsDb: () => requestsDb
 
 };
@@ -90,4 +99,14 @@ function round(number, precision) {
         return +(numArray[0] + "e" + (numArray[1] ? (+numArray[1] + precision) : precision));
     };
     return shift(Math.round(shift(number, precision, false)), precision, true);
+}
+
+function uuid() {
+    function s4() {
+        return Math.floor((1 + Math.random()) * 0x10000)
+            .toString(16)
+            .substring(1);
+    }
+
+    return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
 }

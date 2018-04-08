@@ -11,6 +11,10 @@ module.exports = {
             .query('format=jsonv2')
             .query({lat: coordinates[0]})
             .query({lon: coordinates[1]})
+            .headers({
+                'Accept': 'application/json',
+                'User-Agent': 'samaritan-node-client'
+            })
             .end(function (res) {
                 callback(res)
             });

@@ -22,7 +22,7 @@ clientPromise.then(client => {
         db.collection("requests").find({}).limit(100).execute()
     ).then(data => {
         console.log(data);
-        // console.log(data[0].coordinates)
+        console.log(data[0].location.coordinates)
     }).catch(err =>
         console.log(err)
     );

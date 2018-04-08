@@ -14,7 +14,7 @@ const coordinates = {
 
 
 database.loadMongo().then(() =>
-    database.createRequest("Coding", "Dan", "food", 0, Date.now(), coordinates["xfinity-center"])
+    database.createRequest("MATH241 Tutoring", "Evan P", "Need help with MATH241. Matlab help would also be appreciated", 1, Date.now(), "College Park Maryland")
 ).then(data =>
     console.log(data)
 ).catch(err =>

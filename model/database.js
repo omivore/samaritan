@@ -17,7 +17,7 @@ module.exports = {
 
     createRequest: (title, author, content, needed, time, address) => {
         return geocode.geocode(address).then(response => {
-            let coords = [Number(response.body[0].lat), Number(response.body[1].lon)];
+            let coords = [Number(response.body[0].lat), Number(response.body[0].lon)];
             return requestsDb.insertOne({
                 title: title,
                 author: author,

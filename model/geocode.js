@@ -10,8 +10,9 @@ module.exports = {
                     'User-Agent': 'samaritan-node-client'
                 })
                 .query('format=jsonv2')
-                .query('q=' + search)
+                .query({q: search})
                 .end(response => {
+                    console.log(response);
                     if (response) resolve(response);
                     else reject(response);
                 });

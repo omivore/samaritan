@@ -6,10 +6,9 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', (req, res) => {
-    console.log("getting the thing!");
     req.session.regenerate(() => {
         req.session.user = req.body.username;
-        res.redirect('back');
+        res.redirect('/');
     });
 });
 

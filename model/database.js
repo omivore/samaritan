@@ -16,19 +16,22 @@ module.exports = {
     },
 
     createRequest: (title, author, content, needed, time, address) => {
-        return requestsDb.insertOne({
-            title: title,
-            author: author,
-            time: time,
-            address: address,
-            location: {
-                type: 'Point',
-                coordinates: place
-            },
-            content: content,
-            needed: needed,
-            volunteers: [],
-            uuid: uuid()
+        return geocode.geocode(address, response => {
+            let coords = [Number(response.body[0].lat), Number(response.body[1].lon)];
+            return requestsDb.insertOne({
+                title: title,
+                author: author,
+                time: time,
+                address: address,
+                location: {
+                    type: 'Point',
+                    coordinates: coords
+                },
+                content: content,
+                needed: needed,
+                volunteers: [],
+                uuid: uuid()
+            })
         });
     },
 
@@ -93,7 +96,7 @@ Number.prototype.toRadians = function () {
 };
 
 function round(number, precision) {
-    var shift = function (number, precision, reverseShift) {
+    let shift = function (number, precision, reverseShift) {
         if (reverseShift) {
             precision = -precision;
         }

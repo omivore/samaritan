@@ -1,4 +1,4 @@
-const database = require("../database")
+const database = require("../database");
 
 const coordinates = {
     "xfinity-center": [
@@ -10,7 +10,7 @@ const coordinates = {
         -76.947505
     ],
 
-}
+};
 
 
 database.loadMongo().then(() =>
@@ -19,4 +19,4 @@ database.loadMongo().then(() =>
     console.log(data)
 ).catch(err =>
     console.log(err)
-)
+);

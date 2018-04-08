@@ -32,7 +32,7 @@ router.get('/', function (req, res, next) {
                 minDistance: 0
             }, address).then(data => {
                 res.render('index', data);
-            })
+            });
         });
     });
 });

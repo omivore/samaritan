@@ -12,14 +12,16 @@ router.get('/', restrict, function (req, res, next) {
 });
 
 router.post('/', (req, res) => {
-    database.createRequest(
+    // console.log("Posted");
+    database.loadMongo().then(() => database.createRequest(
         req.body.title,
         req.session.user,
         req.body.content,
         req.body.needed,
         Date.now(),
         req.body.address
-    )
+    ));
+    res.redirect('/');
 });
 
 module.exports = router;

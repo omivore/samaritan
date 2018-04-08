@@ -16,7 +16,7 @@ module.exports = {
     },
 
     createRequest: (title, author, content, needed, time, address) => {
-        return geocode.geocode(address, response => {
+        return geocode.geocode(address).then(response => {
             let coords = [Number(response.body[0].lat), Number(response.body[1].lon)];
             return requestsDb.insertOne({
                 title: title,
@@ -31,7 +31,7 @@ module.exports = {
                 needed: needed,
                 volunteers: [],
                 uuid: uuid()
-            })
+            });
         });
     },
 
@@ -70,11 +70,11 @@ module.exports = {
     },
 
     updateRequest: (uuid, data) => {
-        return requestsDb.updateOne({uuid: uuid}, {$set: {data}})
+        return requestsDb.updateOne({uuid: uuid}, {$set: {data}});
     },
 
     addVolunteer: (uuid, volunteer) => {
-        return requestsDb.updateOne({uuid: uuid}, {$push: {volunteers: volunteer}})
+        return requestsDb.updateOne({uuid: uuid}, {$push: {volunteers: volunteer}});
     },
 
     requestsDb: () => requestsDb

@@ -19,17 +19,7 @@ clientPromise.then(client => {
     const db = client.service('mongodb', 'mongodb-atlas').db('samaritan-db');
 
     client.login().then(() =>
-        db.collection("requests").find({
-            location: {
-                $near: {
-                    $geometry: {
-                        type: "Point",
-                        coordinates: coordinates.hagerstown
-                    },
-                    $maxDistance: 10000000
-                }
-            }
-        }).limit(100).execute()
+        db.collection("requests").find({}).limit(100).execute()
     ).then(data => {
         console.log(data);
         // console.log(data[0].coordinates)

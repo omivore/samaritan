@@ -50,7 +50,10 @@ module.exports = {
                         title: item.title,
                         author: item.author,
                         time: new Date(item.time).toDateString(),
-                        distance: round(getDistance(location.coordinates, item.location.coordinates), 2).toString() + " miles",
+                        distance: round(getDistance(
+                            location.coordinates,
+                            item.location.coordinates
+                        ), 2).toString() + " miles away",
                         content: item.content,
                         current: 0,
                         total: item.needed

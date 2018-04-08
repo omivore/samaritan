@@ -1,4 +1,5 @@
 const stitch = require("mongodb-stitch");
+const geocode = require("./geocode");
 
 const clientPromise = stitch.StitchClientFactory.create('samaritan-vvwrm');
 
@@ -14,11 +15,12 @@ module.exports = {
         });
     },
 
-    createRequest: (title, author, content, needed, time, place) => {
+    createRequest: (title, author, content, needed, time, address) => {
         return requestsDb.insertOne({
             title: title,
             author: author,
             time: time,
+            address: address,
             location: {
                 type: 'Point',
                 coordinates: place
